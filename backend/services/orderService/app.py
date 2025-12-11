@@ -118,7 +118,7 @@ def create_order():
                 raise ValueError(f"Insufficient Stock for product {product_id}")
             insert_order_item(cursor= cursor, order_id=order_id , product_id=product_id , unit_price=unit_price , quantity=quantity)
         con.commit()  
-        return jsonify({"message": "Order created successfully","order_id":order_id, "status": 200 , "status_text" : "Created"}), 201 
+        return jsonify({"message": "Order created successfully","order_id":order_id, "status": 201 , "status_text" : "Created"}), 201 
     except ValueError as ve:
         # json returned is invalid or empty
         if con : con.rollback()
